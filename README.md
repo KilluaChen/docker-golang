@@ -1,4 +1,4 @@
-###  Docker-compose  Nginx + PHP + Mysql + Redis + Composer
+###  Docker-compose  Nginx + Golang + Mysql + Redis + Composer
 
 1. Install Dcoker
     - Docker
@@ -27,11 +27,11 @@
    $ sudo systemctl enable docker
    ```
 3. Clone project
-    - Git  `git clone https://github.com/KilluaChen/docker-nginx-php-mysql.git`
-    - [Download](https://github.com/KilluaChen/docker-nginx-php-mysql/archive/master.zip)
+    - Git  `git clone https://github.com/KilluaChen/docker-golangl.git`
+    - [Download](https://github.com/KilluaChen/docker-golang/archive/master.zip)
 1. Create log dir
     ```
-    $ cd docker-nginx-php-mysql
+    $ cd docker-golang
     $ mkdir -p logs/error & mkdir -p logs/access
     ```
 4. Append to `/etc/hosts` file (Optional)
@@ -60,14 +60,11 @@
 6. Visit
     - Localhost [http://localhost](http://localhost/index.html)
     - PhpMyAdmin [http://test.pma.com](http://test.pma.com)
-7.  multi-version PHP
-    - 在Docker-compose 里面添加多个php-fpm服务,并定义成不同service 名称
-    - 在nginx 配置中,修改`fastcgi_pass`.监听不同的service即可完成多版本PHP
 1. zsh alias
     ```bash
     alias dis="docker images"
     alias dps="docker ps"
-    alias ds="/home/data/docker-nginx-php-mysql && docker-compose"
+    alias ds="/home/data/docker-golang && docker-compose"
     ```
 7. PS
     - 确保`80`,`3306`,`6479`端口没有被占用
