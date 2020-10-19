@@ -13,16 +13,8 @@ services:
       - "./logs:/var/log/nginx/"
       - "${LOCAL_DIR}:${DOCKER_DIR}"
     depends_on:
-      - golang
       - mysql
     command: [ "nginx","-g","daemon off;" ]
-  golang:
-    image: golang:${GO_VERSION}
-    container_name: go-${GO_VERSION}
-    restart: always
-    volumes:
-      - "${LOCAL_DIR}:${DOCKER_DIR}"
-    command: [ "/home/www/main" ]
   mysql:
     image: mysql:${MYSQL_VERSION}
     container_name: mysql-${MYSQL_VERSION}
