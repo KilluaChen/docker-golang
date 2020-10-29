@@ -57,14 +57,36 @@
    # Delete
    $ docker-compose down
    ```
+1. 阿里云加速
+    ```bash
+    sudo mkdir -p /etc/docker
+    sudo tee /etc/docker/daemon.json <<-'EOF'
+    {
+      "registry-mirrors": ["https://c9uxfqpy.mirror.aliyuncs.com"]
+    }
+    EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
+    ```
 6. Visit
     - Localhost [http://localhost](http://localhost/index.html)
     - PhpMyAdmin [http://test.pma.com](http://test.pma.com)
 1. zsh alias
     ```bash
+    #Git
+    alias gaa="git add ."
+    alias gc="git commit -m"
+    alias gp="git push"
+    alias gd="git diff"
+    alias gs="git status"
+    alias gcm="git checkout master"
+    alias gcd="git checkout dev"
+    alias gb="git branch"
+
+    #Docker
+    alias dc="docker-compose"
     alias dis="docker images"
     alias dps="docker ps"
-    alias ds="/home/data/docker-golang && docker-compose"
     ```
 7. PS
     - 确保`80`,`3306`,`6479`端口没有被占用
